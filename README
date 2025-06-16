@@ -1,0 +1,123 @@
+# 📦 API REST com Express e MongoDB
+
+Este projeto é uma API RESTful desenvolvida com **Node.js**, **Express** e **MongoDB**, estruturada de forma modular com **Services**, **Repositories**, **DTOs** e **Middlewares**. A aplicação implementa autenticação com **JWT** e fornece uma documentação interativa utilizando **Swagger**.
+
+## 🚀 Como Executar Localmente
+
+### Requisitos
+
+- [Node.js](https://nodejs.org) v18 ou superior  
+- [MongoDB](https://www.mongodb.com/)
+
+### Passos para executar
+
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/nome-do-repo.git
+   cd nome-do-repo
+````
+
+2. Instale as dependências:
+
+   ```bash
+   npm install
+   ```
+
+3. Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
+
+   ```env
+   PORT=3000
+   MONGODB_URI=mongodb://localhost:27017/seu-banco
+   JWT_SECRET=sua_chave_secreta
+   ```
+
+4. Execute o servidor:
+
+   ```bash
+   npm start
+   ```
+
+5. Acesse a API através do navegador ou de ferramentas como Postman:
+
+   ```
+   http://localhost:3000
+   ```
+
+6. Para visualizar a documentação Swagger:
+
+   ```
+   http://localhost:3000/api-docs
+   ```
+
+## 📄 Funcionalidades da API
+
+### Autenticação
+
+* **POST** `/auth/login`: Realiza login com e-mail e senha (retorna token JWT)
+
+### Usuários
+
+* **GET** `/users`: Lista todos os usuários
+* **POST** `/users`: Cria um novo usuário com senha criptografada
+* **GET** `/users/:id`: Retorna um usuário específico pelo ID
+* **PUT** `/users/:id`: Atualiza os dados de um usuário
+* **DELETE** `/users/:id`: Remove um usuário do sistema
+* **GET** `/users/search?name=xyz`: Busca usuários por nome
+
+### Autores
+
+* **GET** `/authors`: Lista todos os autores
+* **POST** `/authors`: Cadastra um novo autor
+* **GET** `/authors/:id`: Retorna um autor pelo ID
+* **PUT** `/authors/:id`: Atualiza os dados de um autor
+* **DELETE** `/authors/:id`: Remove um autor
+* **GET** `/authors/search?name=xyz`: Busca autores por nome
+
+### Posts
+
+* **GET** `/posts`: Lista todos os posts cadastrados
+* **POST** `/posts`: Cria um post vinculado a um autor existente
+* **GET** `/posts/:id`: Exibe os detalhes de um post específico
+* **PUT** `/posts/:id`: Atualiza os dados de um post
+* **DELETE** `/posts/:id`: Exclui um post
+* **GET** `/posts/search?keyword=xyz`: Busca posts por título ou descrição
+
+## 📘 Documentação Swagger
+
+A documentação da API é gerada automaticamente com Swagger e pode ser acessada durante a execução:
+
+* **Arquivo de configuração:** `src/config/swagger.js`
+* **URL:** [http://localhost:3000/api-docs](http://localhost:3000/api-docs)
+
+## 📂 Estrutura de Pastas
+
+```
+src/
+├── config/          # Configurações gerais (ex: banco de dados, Swagger)
+├── controllers/     # Lógica das requisições
+├── dtos/            # Objetos de transferência de dados
+├── middlewares/     # Autenticação, validação e outros filtros
+├── models/          # Modelos e schemas do MongoDB
+├── repositories/    # Abstração da camada de dados
+├── routes/          # Definição das rotas da API
+├── services/        # Regras de negócio
+├── utils/           # Funções auxiliares
+└── app.js           # Arquivo principal da aplicação
+```
+
+## 🛡️ Segurança
+
+* Autenticação com **JWT**
+* Criptografia de senhas com **bcrypt**
+* Middleware de proteção para rotas privadas
+
+## 📄 Licença
+
+Este projeto está licenciado sob os termos da licença **MIT**. Veja o arquivo `LICENSE` para mais informações.
+
+## 👥 Autor
+
+Desenvolvido por [Seu Nome](https://github.com/seu-usuario).
+Contribuições, issues e sugestões são sempre bem-vindas!
+
+
